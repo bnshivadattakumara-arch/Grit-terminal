@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grit Terminal | World's 1st Traders Ecosystem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              terminal: {
+                black: 'var(--terminal-black)',
+                green: 'var(--terminal-green)',
+                darkGreen: 'var(--terminal-darkGreen)',
+                dim: 'var(--terminal-dim)',
+                alert: 'var(--terminal-alert)',
+                contrast: 'var(--terminal-contrast)',
+              }
+            },
+            fontFamily: {
+              mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+              sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            }
+          }
+        }
+      }
+      window.process = window.process || { env: { API_KEY: "" } };
+    </script>
+    <style>
+      :root {
+        --terminal-black: #0c0c0c;
+        --terminal-green: #4ade80;
+        --terminal-darkGreen: #14532d;
+        --terminal-dim: #22c55e;
+        --terminal-alert: #ef4444;
+        --terminal-contrast: #ffffff;
+      }
+
+      /* Global Square Constraint */
+      *, button, input, div, section, canvas {
+        border-radius: 0px !important;
+      }
+
+      /* Apple Pro Light Theme - Square & Sleek */
+      .theme-apple-glass {
+        --terminal-black: #F5F5F7;
+        --terminal-green: #1D1D1F;
+        --terminal-darkGreen: rgba(0, 0, 0, 0.08);
+        --terminal-dim: #007AFF;
+        --terminal-alert: #FF3B30;
+        --terminal-contrast: #000000;
+        background-color: #F5F5F7;
+      }
+
+      .theme-apple-glass body {
+        background-color: #F5F5F7;
+        color: #1D1D1F;
+      }
+
+      .theme-apple-glass .bg-terminal-black,
+      .theme-apple-glass .bg-black {
+        background: rgba(255, 255, 255, 0.8) !important;
+        backdrop-filter: blur(30px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04) !important;
+      }
+
+      .theme-apple-glass header {
+        background: rgba(255, 255, 255, 0.7) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .theme-apple-glass button {
+        background: #FFFFFF !important;
+        border: 1px solid #D2D2D7 !important;
+        color: #007AFF !important;
+        font-weight: 500 !important;
+      }
+
+      .theme-apple-glass button:hover {
+        background: #F5F5F7 !important;
+        border-color: #007AFF !important;
+      }
+
+      .theme-apple-glass button.bg-terminal-green {
+        background: #007AFF !important;
+        color: #FFFFFF !important;
+        border: none !important;
+      }
+
+      .theme-apple-glass input {
+        background: #FFFFFF !important;
+        border: 1px solid #D2D2D7 !important;
+        color: #1D1D1F !important;
+      }
+
+      /* System Accents */
+      .theme-bloomberg { --terminal-green: #ffb100; --terminal-darkGreen: #4a3500; --terminal-dim: #cc8e00; }
+      .theme-ocean { --terminal-green: #00d4ff; --terminal-darkGreen: #004555; --terminal-dim: #00a3cc; }
+      .theme-sun { --terminal-green: #facc15; --terminal-darkGreen: #713f12; --terminal-dim: #ca8a04; }
+      .theme-white { --terminal-black: #ffffff; --terminal-green: #0f172a; --terminal-darkGreen: #e2e8f0; --terminal-contrast: #000000; }
+
+      body { background: var(--terminal-black); color: var(--terminal-green); margin: 0; padding: 0; overflow-x: hidden; transition: background 0.3s ease; }
+      @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(1000%); } }
+      .scanline { position: fixed; top: 0; left: 0; width: 100%; height: 2px; background: rgba(74, 222, 128, 0.03); z-index: 100; pointer-events: none; animation: scan 8s linear infinite; }
+      
+      .terminal-glow { text-shadow: 0 0 10px var(--terminal-green); }
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--terminal-darkGreen); }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--terminal-green); }
+
+      input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "d3": "https://esm.sh/d3@^7.9.0",
+    "topojson-client": "https://esm.sh/topojson-client@^3.1.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
+  <body class="font-mono">
+    <div class="scanline"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

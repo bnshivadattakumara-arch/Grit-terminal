@@ -1,0 +1,7 @@
+{
+  "name": "Copy of grit new",
+  "description": "Real-time multi-exchange asset explorer with AI-powered technical analysis, market visualizations, and comprehensive data across Binance, Bybit, Hyperliquid, Coinbase, MEXC, and CoinDCX.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
